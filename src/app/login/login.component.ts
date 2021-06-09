@@ -13,14 +13,14 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
       username: ['', Validators.email],
-      pasword: ['', Validators.required]
-    })
+      password: ['', Validators.required]
+    });
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
   }
 
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
 
   }
 }

@@ -1,0 +1,46 @@
+<mat-toolbar color="primary" fxLayout="column" fxLayoutAlign="center center">
+    <mat-toolbar-row></mat-toolbar-row>
+    <mat-toolbar-row fxLayoutAlign="center">
+        <span style="font-size: 50px;">Rent a Bicycle</span>
+    </mat-toolbar-row>
+    <mat-toolbar-row></mat-toolbar-row>
+    <mat-toolbar-row></mat-toolbar-row>
+</mat-toolbar>
+<mat-card fxLayoutAlign="center center">
+    <mat-card-content fxLayoutAlign="center stretch">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-icon style="-webkit-text-fill-color:#6A5ACD">account_circle</mat-icon>
+            <h3>Login</h3>
+            <mat-error *ngIf="loginInvalid">
+                The username and password were not recognized
+            </mat-error>
+            <mat-form-field class="full-width-input">
+                <input matInput placeholder="Email" formControlName="username" required>
+                <mat-error>
+                    Please provide a valid email address
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="full-width-input">
+                <input matInput type="password" placeholder="Password" formControlName="password" required>
+                <mat-error>
+                    Please provide a valid password
+                </mat-error>
+            </mat-form-field>
+            <div fxLayoutAlign="end">
+                <a href="https://www.google.com/" class="forgot-password" target="_blank">Forgot Password?</a>
+            </div><br />
+            <button color="primary" type="submit" mat-raised-button>LOGIN</button>
+            <div class="mg-item">
+                or sign up with:
+            </div>
+            <div class="mg-item">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-google"></a>
+                <a href="#" class="fa fa-twitter"></a>
+            </div>
+            <div class="mg-item">
+                Don't have an account? <a href="https://www.google.com/" target="_blank">Create an account</a>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
