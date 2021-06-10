@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bike-renting-client-app": {
+    "rent-a-bike-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bike-renting-client-app",
+            "outputPath": "dist/rent-a-bike-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -75,10 +75,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bike-renting-client-app:build:production"
+              "browserTarget": "rent-a-bike-app:build:production"
             },
             "development": {
-              "browserTarget": "bike-renting-client-app:build:development"
+              "browserTarget": "rent-a-bike-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +86,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bike-renting-client-app:build"
+            "browserTarget": "rent-a-bike-app:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "bike-renting-client-app"
+  "defaultProject": "rent-a-bike-app"
 }

@@ -1,33 +1,28 @@
-<mat-toolbar color="primary" fxLayout="column" fxLayoutAlign="center center">
-    <mat-toolbar-row></mat-toolbar-row>
-    <mat-toolbar-row fxLayoutAlign="center">
-        <span style="font-size: 50px;">Rent a Bicycle</span>
-    </mat-toolbar-row>
-    <mat-toolbar-row></mat-toolbar-row>
-    <mat-toolbar-row></mat-toolbar-row>
-</mat-toolbar>
+<app-top-bar></app-top-bar>
 <mat-card fxLayoutAlign="center center">
     <mat-card-content fxLayoutAlign="center stretch">
-        <form [formGroup]="form" (ngSubmit)="onSubmit()">
-            <mat-icon style="-webkit-text-fill-color:#6A5ACD">account_circle</mat-icon>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <mat-icon class="login-icon">directions_bike</mat-icon>
             <h3>Login</h3>
             <mat-error *ngIf="loginInvalid">
                 The username and password were not recognized
             </mat-error>
-            <mat-form-field class="full-width-input">
+            <mat-form-field class="full-width-input" appearance="outline">
                 <input matInput placeholder="Email" formControlName="username" required>
+                <mat-icon matSuffix>email</mat-icon>
                 <mat-error>
                     Please provide a valid email address
                 </mat-error>
             </mat-form-field>
-            <mat-form-field class="full-width-input">
+            <mat-form-field class="full-width-input" appearance="outline">
                 <input matInput type="password" placeholder="Password" formControlName="password" required>
+                <mat-icon matSuffix>password</mat-icon>
                 <mat-error>
                     Please provide a valid password
                 </mat-error>
             </mat-form-field>
             <div fxLayoutAlign="end">
-                <a href="https://www.google.com/" class="forgot-password" target="_blank">Forgot Password?</a>
+                <a routerLink="/forgot" class="forgot-password">Forgot Password?</a>
             </div><br />
             <button color="primary" type="submit" mat-raised-button>LOGIN</button>
             <div class="mg-item">
@@ -39,7 +34,7 @@
                 <a href="#" class="fa fa-twitter"></a>
             </div>
             <div class="mg-item">
-                Don't have an account? <a href="https://www.google.com/" target="_blank">Create an account</a>
+                Don't have an account? <a routerLink="/register">Create an account</a>
             </div>
         </form>
     </mat-card-content>

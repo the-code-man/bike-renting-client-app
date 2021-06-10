@@ -9,9 +9,10 @@ mat-form-field {
     width: 100%;
 }
 
-mat-icon {
-    transform: scale(4);
-    margin-bottom: 40px;
+.login-icon {
+    -webkit-text-fill-color:#6A5ACD;
+    transform: scale(3);
+    margin: 10px;
 }
 
 button {

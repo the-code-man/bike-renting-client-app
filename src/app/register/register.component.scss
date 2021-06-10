@@ -1,25 +1,45 @@
-.formmain {
-  margin-top: 6em;
+mat-card {
+  max-width: 600px;
+  height: 750px;
+  margin: -100px auto;
 }
 
-.example-radio-button {
-  margin-left: 7px;
-}
-mat-grid-tile {
-  background: #fafafa;
-}
-.width-50 {
-  width: 49%;
-}
-.ml-1 {
-  margin-left: 1%;
-}
-.ml-2 {
-  margin-left: 2%;
-}
-.width-100 {
+mat-horizontal-stepper {
   width: 100%;
+  height: 100%;
 }
-.width-25 {
-  width: 25%;
+
+button {
+  border-radius: 5px;
+  max-height: 8vh;
+  width: 150px;
+}
+
+.login-icon {
+  -webkit-text-fill-color: #6a5acd;
+  transform: scale(3);
+  margin: 10px;
+}
+
+.mat-radio-button {
+  margin: 18px 18px 0px auto;
+}
+
+.sm-heading {
+  font-size: 12px;
+  margin-bottom: -10px !important;
+}
+
+.sm-field {
+  width: 160px !important;
+}
+
+.your-photo {
+  width: 90px;
+  height: 90px;
+}
+
+.document-proof {
+  width: 226px;
+  height: 110px;
 }

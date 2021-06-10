@@ -1,1 +1,188 @@
-<p>register-works</p>
+<app-top-bar></app-top-bar>
+<mat-card fxLayout="column" fxLayoutAlign="center center">
+    <div style="width: 100%;" fxLayout="column" fxLayoutAlign="center center">
+        <mat-icon class="login-icon">account_circle</mat-icon>
+        <h3>New User Registeration</h3>
+    </div>
+    <mat-horizontal-stepper #stepper>
+        <mat-step [stepControl]="basicDetailsForm">
+            <form [formGroup]="basicDetailsForm" fxLayout="column" fxLayoutGap="10px">
+                <ng-template matStepLabel>Fill out basic details</ng-template>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <mat-form-field fxFlex>
+                        <mat-label>First name</mat-label>
+                        <input matInput formControlName="firstName" required>
+                    </mat-form-field>
+                    <mat-form-field fxFlex>
+                        <mat-label>Last name</mat-label>
+                        <input matInput formControlName="lastName">
+                    </mat-form-field>
+                </div>
+                <mat-label class="sm-heading">Gender *</mat-label>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <mat-radio-group [formControl]="genderLabelControl">
+                        <mat-radio-button value="male">
+                            Male
+                        </mat-radio-button>
+                        <mat-radio-button value="female">
+                            Female
+                        </mat-radio-button>
+                        <mat-radio-button value="others">
+                            Others
+                        </mat-radio-button>
+                    </mat-radio-group>
+                    <mat-form-field fxFlex>
+                        <mat-label>Date of Birth</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" required>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <mat-form-field fxFlex>
+                        <mat-label>House number</mat-label>
+                        <input matInput placeholder="Flat # 111, Awesome Apt." formControlName="houseNumberAptName"
+                            required>
+                    </mat-form-field>
+                    <mat-form-field fxFlex>
+                        <mat-label>Street</mat-label>
+                        <input matInput formControlName="street" required>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="10px">
+                    <mat-form-field fxFlex class="sm-field">
+                        <mat-label>State</mat-label>
+                        <input type="text" placeholder="Pick one" aria-label="State" matInput
+                            formControlName="addrState" [matAutocomplete]="stateList" required>
+                        <mat-autocomplete #stateList="matAutocomplete">
+                            <mat-option value="KA">Karnataka</mat-option>
+                            <mat-option value="KL">Kerala</mat-option>
+                            <mat-option value="DL">New Delhi</mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <mat-form-field fxFlex class="sm-field">
+                        <mat-label>City</mat-label>
+                        <input type="text" placeholder="Pick one" aria-label="City" matInput formControlName="city"
+                            [matAutocomplete]="cityList" required>
+                        <mat-autocomplete #cityList="matAutocomplete">
+                            <mat-option value="BA">Bangalore</mat-option>
+                            <mat-option value="MY">Mysore</mat-option>
+                            <mat-option value="CM">Chikkamangalur</mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <mat-form-field fxFlex class="sm-field">
+                        <mat-label>Area</mat-label>
+                        <input type="text" placeholder="Pick one" aria-label="Area" matInput formControlName="area"
+                            [matAutocomplete]="areaList" required>
+                        <mat-autocomplete #areaList="matAutocomplete">
+                            <mat-option value="LBSN">L.B. Shastry Nagar</mat-option>
+                            <mat-option value="KRP">K.R. Puram</mat-option>
+                            <mat-option value="MGR">M.G. Road</mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <mat-form-field fxFlex>
+                        <mat-label>Postal Code</mat-label>
+                        <input matInput #postalCode formControlName="postalCode" maxlength="6" required>
+                        <mat-hint align="end">{{postalCode.value.length}} / 6</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field fxFlex>
+                        <mat-label>Contact Number</mat-label>
+                        <span matPrefix>+91 &nbsp;</span>
+                        <input matInput placeholder="5555551234" formControlName="contactNumber" maxlength="10"
+                            required>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <div fxLayout="column" fxFlex="44.5vh">
+                        <mat-form-field fxFlex>
+                            <mat-label>Your Photo</mat-label>
+                            <input matInput formControlName="photo" required>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="column">
+                        <img [src]="imageUrl" class="your-photo" />
+                    </div>
+                </div>
+                <div fxLayout="row" fxFlexFill fxLayoutAlign="end end">
+                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="accountDetailsForm">
+            <form [formGroup]="accountDetailsForm" fxLayout="column" fxLayoutGap="10px">
+                <ng-template matStepLabel>Fill out account details</ng-template>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <mat-form-field fxFlex>
+                        <mat-label>Email address</mat-label>
+                        <input matInput placeholder="e.g. pat@example.com" formControlName="email" required>
+                    </mat-form-field>
+                    <mat-form-field fxFlex>
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <div fxLayout="column" fxFlex="30vh">
+                        <mat-form-field>
+                            <mat-label>Identification Proof</mat-label>
+                            <mat-select>
+                                <mat-option value="1">Passport</mat-option>
+                                <mat-option value="2">Driving License</mat-option>
+                                <mat-option value="3">Election Commission ID Card</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field fxFlex>
+                            <mat-label>Upload Identification Proof</mat-label>
+                            <input matInput formControlName="idProof" required>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="column">
+                        <img [src]="imageUrl" class="document-proof" />
+                    </div>
+                </div>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <div fxLayout="column" fxFlex="30vh">
+                        <mat-form-field>
+                            <mat-label>Address Proof</mat-label>
+                            <mat-select>
+                                <mat-option value="1">Passport</mat-option>
+                                <mat-option value="2">Driving License</mat-option>
+                                <mat-option value="3">Election Commission ID Card</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <mat-form-field fxFlex>
+                            <mat-label>Upload Address Proof [Front]</mat-label>
+                            <input matInput formControlName="addressProof" required>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="column">
+                        <img [src]="imageUrl" class="document-proof" />
+                    </div>
+                </div>
+                <div fxLayout="row" fxFlexFill fxLayoutGap="16px">
+                    <div fxLayout="column" fxFlex="30vh">
+                        <mat-form-field fxFlex>
+                            <mat-label>Upload Address Proof [Back]</mat-label>
+                            <input matInput formControlName="addressProof" required>
+                        </mat-form-field>
+                    </div>
+                    <div fxLayout="column">
+                        <img [src]="imageUrl" class="document-proof" />
+                    </div>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="end end" fxLayoutGap="16px">
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                    <button mat-raised-button color="primary"
+                        [disabled]="!(basicDetailsForm.valid || accountDetailsForm.valid)" type="submit">Let's
+                        ride!</button>
+                </div>
+            </form>
+        </mat-step>
+    </mat-horizontal-stepper>
+</mat-card>
